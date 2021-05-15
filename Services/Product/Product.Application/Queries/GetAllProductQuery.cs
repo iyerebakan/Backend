@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Product.Application.Queries
 {
-    public class GetAllProductQuery : IQuery<Domain.Entities.Product>
+    public class GetAllProductQuery : IQuery<List<Domain.Entities.Product>>
     {
     }
 }

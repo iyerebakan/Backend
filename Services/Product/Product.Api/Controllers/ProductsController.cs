@@ -23,7 +23,7 @@ namespace Product.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<Domain.Entities.Product> Get()
+        public async Task<List<Domain.Entities.Product>> Get()
         {
             return await queryBus.Send(new GetAllProductQuery());
         }
