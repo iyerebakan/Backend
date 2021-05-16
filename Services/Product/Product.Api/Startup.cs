@@ -1,4 +1,5 @@
 using Cache.IoC;
+using CQRS.Behaviours;
 using CQRS.IoC;
 using Data.EF.IoC;
 using MediatR;
@@ -37,6 +38,7 @@ namespace Product.Api
             services.AddBackendCqrs();
             services.AddBackendCache(Configuration);
             services.AddMediatR(typeof(Application.QueryHandlers.GetAllProductQueryHandler).Assembly);
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehaviour<,>));
             services.AddBackendProduct();
 
             services.AddSwaggerGen(c =>

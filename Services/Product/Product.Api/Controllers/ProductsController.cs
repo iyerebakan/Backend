@@ -30,9 +30,9 @@ namespace Product.Api.Controllers
 
         // GET api/<ProductsController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return "value";
+            return Ok(await queryBus.Send(new GetProductByIdQuery(id)));
         }
 
         // POST api/<ProductsController>
