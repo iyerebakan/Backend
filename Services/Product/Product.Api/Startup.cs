@@ -38,7 +38,8 @@ namespace Product.Api
             services.AddBackendCqrs();
             services.AddBackendCache(Configuration);
             services.AddMediatR(typeof(Application.QueryHandlers.GetAllProductQueryHandler).Assembly);
-            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingProcessor<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingProcessor<,>));
             services.AddBackendProduct();
 
             services.AddSwaggerGen(c =>

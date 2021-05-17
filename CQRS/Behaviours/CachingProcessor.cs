@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace CQRS.Behaviours
 {
-    public class CachingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public class CachingProcessor<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
         where TResponse : class, new()
         where TRequest : ICacheable
     {
         private readonly ICacheService cacheService;
 
-        public CachingBehaviour(ICacheService cacheService)
+        public CachingProcessor(ICacheService cacheService)
         {
             this.cacheService = cacheService;
         }

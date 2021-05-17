@@ -1,6 +1,7 @@
 ﻿using CQRS.Queries;
 using Microsoft.AspNetCore.Mvc;
 using Product.Application.Queries;
+using Product.Domain.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Product.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<List<Domain.Entities.Product>> Get()
+        public async Task<List<ProductDto>> Get()
         {
             return await queryBus.Send(new GetAllProductQuery());
         }

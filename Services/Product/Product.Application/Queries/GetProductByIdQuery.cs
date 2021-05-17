@@ -1,5 +1,6 @@
 ﻿using CQRS.Abstraction;
 using CQRS.Queries;
+using Product.Domain.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Product.Application.Queries
 {
-    public class GetProductByIdQuery : IQuery<Domain.Entities.Product>,ICacheable
+    public class GetProductByIdQuery : IQuery<ProductDto>,ICacheable
     {
         public GetProductByIdQuery(int id)
         {

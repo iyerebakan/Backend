@@ -11,12 +11,12 @@ namespace Cache
     {
         public CacheItem()
         {
-            this.Key = typeof(T).FullName;
+            this.Key = typeof(T).Name;
         }
 
         public CacheItem(T item)
         {
-            this.Key = typeof(T).FullName;
+            this.Key = typeof(T).Name;
             this.Value = item;
             this.Hash = this.Value.GetHashCode();
         }

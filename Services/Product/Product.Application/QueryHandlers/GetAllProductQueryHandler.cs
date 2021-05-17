@@ -1,19 +1,16 @@
-﻿using Cache;
-using CQRS.Abstraction;
-using CQRS.Queries;
-using Microsoft.Extensions.Logging;
+﻿using CQRS.Queries;
 using Product.Application.Queries;
+using Product.Domain.Dtos;
 using Product.Domain.Repositories;
-using System;
+using Product.Infrastructure.Expressions;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Product.Application.QueryHandlers
 {
-    public class GetAllProductQueryHandler : IQueryHandler<GetAllProductQuery, List<Domain.Entities.Product>>
+    public class GetAllProductQueryHandler : IQueryHandler<GetAllProductQuery, List<ProductDto>>
     {
         private readonly IProductRepository productRepository;
 
@@ -22,9 +19,9 @@ namespace Product.Application.QueryHandlers
             this.productRepository = productRepository;
         }
 
-        public async Task<List<Domain.Entities.Product>> Handle(GetAllProductQuery request, CancellationToken cancellationToken)
+        public async Task<List<ProductDto>> Handle(GetAllProductQuery request, CancellationToken cancellationToken)
         {
-            var response = await productRepository.GetListAsync();
+            var response = await productRepository.GetListAsync(selector: ProductExpressions.ProductDtos);
             return response.ToList();
         }
     }

@@ -9,8 +9,8 @@ namespace Product.Domain.Entities
 {
     public class ProductGroup : Entity
     {
-        public int Id { get; set; }
-        public string Definition { get; set; }
-        public bool Active { get; set; }
+        public int Id { get; private set; }
+        public string Definition { get; private set; }
+        public bool Active { get; private set; }
     }
 }
