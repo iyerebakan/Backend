@@ -48,7 +48,7 @@ namespace IdentityServer
 
                     if (!userManager.Users.Any())
                     {
-                        userManager.CreateAsync(new ApplicationUser { UserName = "fcakiroglu16", Email = "f-cakiroglu@outlook.com"}, "Password12*").Wait();
+                        userManager.CreateAsync(new ApplicationUser { UserName = "iyerebakan", Email = "ibrahim-yerebakan@windowslive.com"}, "Password12*").Wait();
                     }
                 }
                 Log.Information("Starting host...");
